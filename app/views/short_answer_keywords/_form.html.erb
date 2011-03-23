@@ -1,0 +1,24 @@
+<%= form_for(@short_answer_keyword) do |f| %>
+  <% if @short_answer_keyword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@short_answer_keyword.errors.count, "error") %> prohibited this short_answer_keyword from being saved:</h2>
+
+      <ul>
+      <% @short_answer_keyword.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :keyword %><br />
+    <%= f.text_field :keyword %>
+  </div>
+   <div class="field">
+    <input id="short_answer_keyword_question_id" name="short_answer_keyword[short_answer_question_id]" type="hidden" value= <%= session[:short_answer_question].id %> />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h2><%= @multi_choice_question.question %></h2>
+
+<div id="answers">
+  <h4> Answers </h4>
+  <table>
+  <%= render :partial => 'multi_choice_answer', :collection => @multi_choice_question.answers %>
+  </table>
+  <% if @multi_choice_question.answers.count < 10 %>
+    <%= link_to 'Add an Answer', new_multi_choice_question_multi_choice_answer_path(@multi_choice_question, @multi_choice_answer) %>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_multi_choice_question_path(@multi_choice_question) %> |
+<%= link_to 'Back', multi_choice_questions_path %>

@@ -1,0 +1,27 @@
+<h1>Listing multi_choice_answers</h1>
+
+<table>
+  <tr>
+    <th>Answer</th>
+    <th>Question</th>
+    <th>Correct</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @multi_choice_answers.each do |multi_choice_answer| %>
+  <tr>
+    <td><%= multi_choice_answer.answer %></td>
+    <td><%= multi_choice_answer.question_id %></td>
+    <td><%= multi_choice_answer.correct %></td>
+    <td><%= link_to 'Show', multi_choice_answer %></td>
+    <td><%= link_to 'Edit', edit_multi_choice_answer_path(multi_choice_answer) %></td>
+    <td><%= link_to 'Destroy', multi_choice_answer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Multi choice answer', new_multi_choice_answer_path %>

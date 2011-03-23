@@ -1,0 +1,33 @@
+#user_selector {
+  float:left;
+  width:200px;
+  text-align:center;
+  font-weight:bold;
+}
+
+#start_datetime_display {
+  float:left;
+  width:180px;
+  text-align:center;
+  font-weight:bold;
+}
+
+#finish_datetime_display {
+  float:left;
+  width:180px;
+  text-align:center;
+  font-weight:bold;
+}
+
+#startdatetimepicker {
+  
+}
+
+#finishdatetimepicker {
+  
+}
+
+#searchresults {
+  padding-top: 200px;
+}
+

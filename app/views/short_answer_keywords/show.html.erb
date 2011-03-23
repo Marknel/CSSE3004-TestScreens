@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Keyword:</b>
+  <%= @short_answer_keyword.keyword %>
+</p>
+
+<p>
+  <b>Short answer question:</b>
+  <%= @short_answer_keyword.short_answer_question_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_short_answer_keyword_path(@short_answer_keyword) %> |
+<%= link_to 'Back', short_answer_keywords_path %>

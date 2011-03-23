@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<% session[:short_answer_question] = @short_answer_question %>
+<p>
+  <b>Question:</b>
+  <%= @short_answer_question.question %>
+</p>
+
+
+<div id="keywords">
+  <h4> Keywords </h4>
+  <table>
+  <%= render :partial => 'short_answer_keyword', :collection => @short_answer_question.short_answer_keywords %>
+  </table>
+  <%= link_to 'Add a Keyword', new_short_answer_keyword_path %>
+</div>
+
+<%= link_to 'Edit', edit_short_answer_question_path(@short_answer_question) %> |
+<%= link_to 'Back', short_answer_questions_path %>

@@ -1,0 +1,70 @@
+<h2>My Questions</h2>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= link_to question, question %></li>
+  <% end %>
+</ul>
+<br />
+<%= link_to 'New Multi Choice Question', new_multi_choice_question_path %> | 
+<%= link_to 'New Short Answer Question', new_short_answer_question_path %>
+<br />
+<hr />
+<h2>Search For Questions </h2>
+<div id="searchform">
+  
+  <form action="/" method="get">
+    <div id="user_selector">
+      <%= select("user", "user", User.all.collect{ |u| [u.email, u.id] }) %>
+    </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#startdatetimepicker").datetimepicker({
+        dateFormat:"yy-mm-dd",
+        onSelect: function(dateText, inst) {
+          $("#start_datetime_display").html(dateText + ":00");
+          $("#start_datetime").val(dateText + ":00");
+        }
+      });
+      
+      $("#finishdatetimepicker").datetimepicker({
+        
+        dateFormat:"yy-mm-dd",
+        onSelect: function(dateText, inst) {
+          $("#finish_datetime_display").html(dateText + ":00");
+          $("#finish_datetime").val(dateText + ":00");
+        }
+      });
+    });
+  </script>
+  
+  
+  
+  
+  <div id="start_datetime_display">Start Date/Time</div>
+  <div id="finish_datetime_display">Finish Date/Time</div>
+  <br />
+  <div type="text" id="startdatetimepicker"></div>
+  <div type="text" id="finishdatetimepicker"></div>
+  <input type="hidden" id="start_datetime" name="from" />
+  <input type="hidden" id="finish_datetime" name="to" />
+  <input type="submit" value="Find Questions" style="margin-left:20px"/>
+
+  </form>
+</div>
+
+<div id="searchresults">
+  
+  <% if @searchuser %>
+    <h3>Search Results</h3>
+    <b>User:</b>
+    <%= @searchuser.email %>
+    <br />
+    <b>Questions:</b>
+    <ul>
+    <% @searchquestions.each do |question| %>
+      <li><%= link_to question, question %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<%= form_for([@multi_choice_question, @multi_choice_answer]) do |f| %>
+  <% if @multi_choice_answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@multi_choice_answer.errors.count, "error") %> prohibited this multi_choice_answer from being saved:</h2>
+
+      <ul>
+      <% @multi_choice_answer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= @multi_choice_question.question %>
+  
+  <div class="field">
+    <%= f.label :answer %><br />
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <input id="multi_choice_answer_question_id" name="multi_choice_answer[multi_choice_question_id]" type="hidden" value= <%= @multi_choice_question.id %> />
+  </div>
+  <div class="field">
+    <%= f.label :correct %><br />
+    <%= f.check_box :correct %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
