@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
-<% session[:short_answer_question] = @short_answer_question %>
-<p>
-  <b>Question:</b>
-  <%= @short_answer_question.question %>
-</p>
+
+<h3> <%= @short_answer_question.question %> </h3>
 
 
 <div id="keywords">
@@ -11,7 +8,8 @@
   <table>
   <%= render :partial => 'short_answer_keyword', :collection => @short_answer_question.short_answer_keywords %>
   </table>
-  <%= link_to 'Add a Keyword', new_short_answer_keyword_path %>
+  <%= link_to 'Add a Keyword', new_short_answer_question_short_answer_keyword_path(@short_answer_question, @short_answer_keyword) %>
+  
 </div>
 
 <%= link_to 'Edit', edit_short_answer_question_path(@short_answer_question) %> |

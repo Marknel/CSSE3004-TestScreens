@@ -1,18 +1,27 @@
 CSSE3004TestScreens::Application.routes.draw do
+  
+  # An area to show users key information
   resources :dashboard
   
-  resources :short_answer_keywords
+  
+  # Short answer questions and their relevant keywords
+  resources :short_answer_questions do
+    resources :short_answer_keywords  
+  end
 
-  resources :short_answer_questions
 
+  # Multi choice questions and their attached answers
   resources :multi_choice_questions do
     resources :multi_choice_answers
   end
   
   
-
+  # Tells the Devise gem to manage users with logins, encryption, authentication etc
   devise_for :users
   
+  
+  # The root of the site
+  root :to => "dashboard#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +72,7 @@ CSSE3004TestScreens::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "dashboard#index"
+  
 
   # See how all your routes lay out with "rake routes"
 

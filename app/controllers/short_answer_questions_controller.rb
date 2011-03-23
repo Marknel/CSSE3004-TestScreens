@@ -1,4 +1,6 @@
 class ShortAnswerQuestionsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /short_answer_questions
   # GET /short_answer_questions.xml
   def index

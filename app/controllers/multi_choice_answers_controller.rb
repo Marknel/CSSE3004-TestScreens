@@ -1,27 +1,6 @@
 class MultiChoiceAnswersController < ApplicationController
-  # GET /multi_choice_answers
-  # GET /multi_choice_answers.xml
-  def index
-    @multi_choice_answers = MultiChoiceAnswer.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @multi_choice_answers }
-    end
-  end
-
-  # GET /multi_choice_answers/1
-  # GET /multi_choice_answers/1.xml
-  def show
-    @multi_choice_answer = MultiChoiceAnswer.find(params[:id])
-    @multi_choice_question = MultiChoiceQuestion.find(params[:multi_choice_question_id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @multi_choice_answer }
-    end
-  end
-
+  before_filter :authenticate_user!
+  
   # GET /multi_choice_answers/new
   # GET /multi_choice_answers/new.xml
   def new

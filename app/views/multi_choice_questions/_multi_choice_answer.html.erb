@@ -1,6 +1,15 @@
 <tr>
-  <td> <%= multi_choice_answer.answer %></td>
-  <td> <%= multi_choice_answer.correct %> </td>
+  <% if multi_choice_answer.correct == true %>
+    
+      <td><b> <%= multi_choice_answer.answer %> </b></td>
+      <td><b> <%= multi_choice_answer.correct %> </b></td>
+    
+  <% else %>
+    <td> <%= multi_choice_answer.answer %> </td>
+    <td> <%= multi_choice_answer.correct %> </td>
+  <% end %>
+  </td>
+  
   <td><%= link_to 'Edit', edit_multi_choice_question_multi_choice_answer_path(multi_choice_answer.multi_choice_question, multi_choice_answer) %></td>
   <td> <%= link_to 'Remove', [multi_choice_answer.multi_choice_question, multi_choice_answer], :confirm => 'Are you sure?', :method => :delete %> </td>
 </tr>

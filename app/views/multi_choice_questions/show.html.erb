@@ -6,9 +6,10 @@
   <%= render :partial => 'multi_choice_answer', :collection => @multi_choice_question.answers %>
   </table>
   <% if @multi_choice_question.answers.count < 10 %>
+    <br />
     <%= link_to 'Add an Answer', new_multi_choice_question_multi_choice_answer_path(@multi_choice_question, @multi_choice_answer) %>
   <% end %>
 </div>
-
+<br />
 <%= link_to 'Edit', edit_multi_choice_question_path(@multi_choice_question) %> |
 <%= link_to 'Back', multi_choice_questions_path %>

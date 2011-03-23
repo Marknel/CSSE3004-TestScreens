@@ -1,5 +1,4 @@
 class MultiChoiceQuestionsController < ApplicationController
-  
   before_filter :authenticate_user!
 
   # GET /multi_choice_questions

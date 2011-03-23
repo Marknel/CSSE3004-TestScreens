@@ -1,4 +1,4 @@
-<%= form_for(@short_answer_keyword) do |f| %>
+<%= form_for([@short_answer_question, @short_answer_keyword]) do |f| %>
   <% if @short_answer_keyword.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@short_answer_keyword.errors.count, "error") %> prohibited this short_answer_keyword from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<h4> <%= @short_answer_question.question %> </h4>
   <div class="field">
     <%= f.label :keyword %><br />
     <%= f.text_field :keyword %>
