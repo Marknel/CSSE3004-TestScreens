@@ -15,10 +15,10 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'sqlite3'
 
 # Oracle driver
-#gem 'ruby-oci8'
+gem 'ruby-oci8'
 
 # Oracle connection adapter and active record parser
-#gem 'activerecord-oracle_enhanced-adapter'
+gem 'activerecord-oracle_enhanced-adapter'
 
 
 # Use unicorn as the web server
